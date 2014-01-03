@@ -1,4 +1,4 @@
-# omg8583
+# omg8583 [![Build Status](https://drone.io/github.com/danielvargas/omg8583/status.png)](https://drone.io/github.com/danielvargas/omg8583/latest)
 
     import "github.com/danielvargas/omg8583"
     
