@@ -1,4 +1,3 @@
-// Packing
 package omg8583
 
 import (
@@ -70,6 +69,6 @@ func unpack(msg string, id int) (*iso, error) {
 			FieldIds: fieldIds,
 			RestData: msg}, nil
 	default:
-		return nil, fmt.Errorf("error, id %d not implemented\n", id)
+		return nil, fmt.Errorf("error, type %d not implemented\n", id)
 	}
 }

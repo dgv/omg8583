@@ -1,4 +1,3 @@
-// Packing
 package omg8583
 
 import (
@@ -28,7 +27,7 @@ func pack(row map[int]string, id int) (string, error) {
 		}
 		return msg + row[id][0:length], nil
 	case p.Type == "lllan":
-		length := len(row)
+		length := len(row[id])
 		if length > p.Length {
 			length = p.Length
 		}
@@ -38,7 +37,7 @@ func pack(row map[int]string, id int) (string, error) {
 		} else if length < 100 {
 			msg = "0" + msg
 		}
-		return msg + row[id][0:length], nil
+		return msg + row[id], nil
 	case p.Type == "b":
 		var msg, bmp string
 		inx := 0
@@ -69,7 +68,7 @@ func pack(row map[int]string, id int) (string, error) {
 			return "", fmt.Errorf("error %v\npacking data from bit %d\npackager: %v", err, id, t[id])
 		}
 	default:
-		fmt.Errorf("error, id %d not implemented")
+		fmt.Errorf("error, type %d not implemented")
 	}
 	return "", nil
 }
